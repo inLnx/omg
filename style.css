@@ -10,3 +10,9 @@ body {
 .highlight {
   background-color: Highlight;
 }
+
+.search {
+  position: absolute;
+  top: env(titlebar-area-y, 0);
+  height: env(titlebar-area-height, 20px);
+}
