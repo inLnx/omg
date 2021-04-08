@@ -1,7 +1,7 @@
 {
   "name": "Chuck Norris Jokes",
   "short_name": "Chuck",
-  "start_url": "./",
+  "start_url": "./",  
   "display_override": ["window-controls-overlay"],
   "display": "standalone",
   "theme_color": "maroon",
