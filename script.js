@@ -10,7 +10,7 @@ if ("serviceWorker" in navigator) {
 }
 
 const removeNonCharacters = text => {
-  return text.replace(/\W/g, "-").replace(/-+/g, "-");
+  return text.replace(/\W/g, "-").replace(/-+/g, "-").toLowerCase();
 };
 
 (async () => {

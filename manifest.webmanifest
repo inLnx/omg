@@ -3,5 +3,12 @@
   "short_name": "Chuck",
   "start_url": "./",
   "display_override": ["window-controls-overlay"],
-  "display": "standalone"
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "https://cdn.glitch.com/e58095ef-156d-4ab0-9647-80d7e85a928b%2Fchuck.png?v=1617897417704",
+      "type": "image/png",
+      "sizes": ["512x512"]
+    }
+  ]
 }
