@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="maroon"/>
+    <script>
+      if (!isSecureContext) {
+        location.protocol = 'https:';
+      }
+    </script>
     <title>Chuck Norris Jokes</title>
     <link rel="stylesheet" href="/style.css" />
     <link rel="manifest" href="/manifest.webmanifest" />
