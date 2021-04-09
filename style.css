@@ -35,7 +35,7 @@ body {
 .search {  
   -webkit-app-region: drag;
   app-region: drag;
-  align-content: center;
+  align-items: center;
   display: flex;
   width: 100%;  
   position: fixed;
@@ -46,6 +46,7 @@ body {
 }
 
 .search label {
+  margin-inline-start: .25rem;
   color: #eee;
 }
 
