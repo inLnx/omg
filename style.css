@@ -48,6 +48,7 @@ body {
   color: #eee;
 }
 
+.search:not(input),
 .search *:not(input) {
   -webkit-app-region: drag;
   app-region: drag;
