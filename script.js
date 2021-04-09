@@ -40,8 +40,12 @@ input.addEventListener("input", e => {
   if (!input.value || !ul.innerHTML) {
     return;
   }
+  const value = removeNonCharacters(input.value);
+  if (value.length < 2) {
+    return;
+  }
   ul.querySelectorAll(
-    `[data-search*="${removeNonCharacters(input.value)}"]`
+    `[data-search*="${value}"]`
   ).forEach(li => {
     li.classList.add("highlight");
   });
