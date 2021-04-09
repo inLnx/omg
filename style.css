@@ -8,6 +8,16 @@
   box-sizing: border-box;
 }
 
+h1 {
+  2rem;
+  color: maroon;
+}
+
+img {
+  height: 100%;
+  width: auto;
+}
+
 html,
 body {
   overscroll-behavior: none;
@@ -26,14 +36,13 @@ body {
   -webkit-app-region: drag;
   app-region: drag;
   align-content: center;
-  display: grid;
+  display: flex;
   width: 100%;  
   position: fixed;
   background-image: linear-gradient(90deg, #131313, 33%, maroon);
   top: env(titlebar-area-y, 0);
   left: env(titlebar-area-x, 0);
-  height: env(titlebar-area-height, 33px);
-  padding-inline-start: .5rem;
+  height: env(titlebar-area-height, 33px);  
 }
 
 .search label {
