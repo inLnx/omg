@@ -1,5 +1,11 @@
-:root {
+:root {  
   color-scheme: dark light;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
 }
 
 body {
@@ -12,11 +18,13 @@ body {
 }
 
 .search {  
+  align-content: center;
   display: grid;
   width: 100%;
   position: absolute;
-  background-color: maroon;
+  background-image: linear-gradient(90deg, CanvasText, maroon);
   top: env(titlebar-area-y, 0);
   left: env(titlebar-area-x, 0);
-  height: env(titlebar-area-height, 25px);
+  height: env(titlebar-area-height, 33px);
+  padding-inline-start: .25rem;
 }
