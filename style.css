@@ -33,8 +33,6 @@ body {
 }
 
 .search {  
-  -webkit-app-region: drag;
-  app-region: drag;
   align-items: center;
   display: flex;  
   position: fixed;
@@ -50,7 +48,7 @@ body {
   color: #eee;
 }
 
-.search input {
-  -webkit-app-region: no-drag;
-  app-region: no-drag;  
+.search *:not(input) {
+  -webkit-app-region: drag;
+  app-region: drag;
 }
