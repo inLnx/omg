@@ -6,7 +6,7 @@ const div = document.querySelector("div");
 const span = document.querySelector("span");
 
 if ("windowControlsOverlay" in navigator) {
-  const { x } = navigator.windowControlsOverlay.getBoundingClientRect();
+  const { x, width } = navigator.windowControlsOverlay.getBoundingClientRect();
   // Window controls are on the right.
   if (x === 0) {
     div.classList.add("search-controls-right");
@@ -15,6 +15,7 @@ if ("windowControlsOverlay" in navigator) {
   else {
     div.classList.add("search-controls-left");
   }
+  span.hidden = width < 800;
 } else {
   div.classList.add("search-controls-right");
 }
