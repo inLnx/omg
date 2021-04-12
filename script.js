@@ -2,6 +2,19 @@ import limitConcur from "https://unpkg.com/limit-concur@0.0.1/src/index.js";
 
 const ul = document.querySelector("ul");
 const input = document.querySelector("input");
+const div = document.querySelector("div");
+
+if ("windowControlsOverlay" in navigator) {
+  const {x} = navigator.windowControlsOverlay.getBoundingClientRect();
+  // Window controls are on the right.
+  if (x === 0) {
+    
+  }
+  // Window controls are on the left.
+  else {
+    
+  }
+}
 
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", async () => {
