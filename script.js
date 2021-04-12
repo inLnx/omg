@@ -5,19 +5,6 @@ const input = document.querySelector("input");
 const div = document.querySelector("div");
 const span = document.querySelector("span");
 
-const debounce = (func, wait) => {  
-  let timeout;
-  return function executedFunction(...args) {
-    const later = () => {
-      clearTimeout(timeout);
-      console.log('Calling', ...args)
-      func(...args);
-    };
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-  };
-};
-
 if ("windowControlsOverlay" in navigator) {
   const { x } = navigator.windowControlsOverlay.getBoundingClientRect();
   // Window controls are on the right.
@@ -32,13 +19,22 @@ if ("windowControlsOverlay" in navigator) {
   div.classList.add("search-controls-right");
 }
 
-if ("windowControlsOverlay" in navigator) {  
-  navigator.windowControlsOverlay.ongeometrychange = debounce((width) => {
-      console.log(width)
-      span.hidden = width < 800;
-    }, 250);
-  }
-  
+const debounce = (func, wait) => {
+  let timeout;
+  return function executedFunction(...args) {
+    const later = () => {
+      clearTimeout(timeout);      
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+};
+
+if ("windowControlsOverlay" in navigator) {
+  navigator.windowControlsOverlay.ongeometrychange = debounce(e => {
+    span.hidden = e.boundingRect.width < 800;
+  }, 250);
 }
 
 if ("serviceWorker" in navigator) {
