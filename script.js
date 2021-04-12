@@ -20,7 +20,12 @@ if ("windowControlsOverlay" in navigator) {
 
 
 if ("windowControlsOverlay" in navigator) {
-  navigator.windowControlsOverlay.ongeometrychange
+  navigator.windowControlsOverlay.ongeometrychange = (e) => {
+    const width = {e};
+    if (width > 500) {
+      
+    }
+  }
 }
 
 if ("serviceWorker" in navigator) {
