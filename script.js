@@ -3,6 +3,19 @@ import limitConcur from "https://unpkg.com/limit-concur@0.0.1/src/index.js";
 const ul = document.querySelector("ul");
 const input = document.querySelector("input");
 const div = document.querySelector("div");
+const span = document.querySelector("span");
+
+const debounce = (func, wait) => {
+  let timeout;
+  return function executedFunction(...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+};
 
 if ("windowControlsOverlay" in navigator) {
   const { x } = navigator.windowControlsOverlay.getBoundingClientRect();
@@ -18,13 +31,9 @@ if ("windowControlsOverlay" in navigator) {
   div.classList.add("search-controls-right");
 }
 
-
 if ("windowControlsOverlay" in navigator) {
-  navigator.windowControlsOverlay.ongeometrychange = (e) => {
-    const width = {e};
-    if (width > 500) {
-      
-    }
+  navigator.windowControlsOverlay.ongeometrychange = (e) => {          
+    debounce(() => {span.hidden = e.boundingRect.width < 800}, 1250);
   }
 }
 

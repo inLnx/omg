@@ -34,7 +34,8 @@ body {
 
 .search {  
   align-items: center;
-  display: flex;  
+  display: flex;
+  gap: .25rem;
   position: fixed;  
   left: env(titlebar-area-x, 0);
   top: env(titlebar-area-y, 0);  
@@ -50,8 +51,7 @@ body {
   background-image: linear-gradient(90deg, #131313, 33%, maroon);
 }
 
-.search label {
-  margin-inline-start: .25rem;
+.search label {  
   color: #eee;
 }
 
