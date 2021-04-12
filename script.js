@@ -5,15 +5,17 @@ const input = document.querySelector("input");
 const div = document.querySelector("div");
 
 if ("windowControlsOverlay" in navigator) {
-  const {x} = navigator.windowControlsOverlay.getBoundingClientRect();
+  const { x } = navigator.windowControlsOverlay.getBoundingClientRect();
   // Window controls are on the right.
   if (x === 0) {
-    
+    div.classList.add("search-controls-right");
   }
   // Window controls are on the left.
   else {
-    
+    div.classList.add("search-controls-left");
   }
+} else {
+  div.classList.add("search-controls-right");
 }
 
 if ("serviceWorker" in navigator) {
@@ -23,7 +25,10 @@ if ("serviceWorker" in navigator) {
 }
 
 const removeNonCharacters = text => {
-  return text.replace(/\W/g, "-").replace(/-+/g, "-").toLowerCase();
+  return text
+    .replace(/\W/g, "-")
+    .replace(/-+/g, "-")
+    .toLowerCase();
 };
 
 (async () => {
@@ -57,9 +62,7 @@ input.addEventListener("input", e => {
   if (value.length < 2) {
     return;
   }
-  ul.querySelectorAll(
-    `[data-search*="${value}"]`
-  ).forEach(li => {
+  ul.querySelectorAll(`[data-search*="${value}"]`).forEach(li => {
     li.classList.add("highlight");
   });
 });
