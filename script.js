@@ -18,6 +18,11 @@ if ("windowControlsOverlay" in navigator) {
   div.classList.add("search-controls-right");
 }
 
+
+if ("windowControlsOverlay" in navigator) {
+  navigator.windowControlsOverlay.ongeometrychange
+}
+
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", async () => {
     await navigator.serviceWorker.register("sw.js");
