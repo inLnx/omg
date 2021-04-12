@@ -10,6 +10,7 @@ const debounce = (func, wait) => {
   return function executedFunction(...args) {
     const later = () => {
       clearTimeout(timeout);
+      console.log('Calling', ...args)
       func(...args);
     };
     clearTimeout(timeout);
@@ -31,15 +32,13 @@ if ("windowControlsOverlay" in navigator) {
   div.classList.add("search-controls-right");
 }
 
-if ("windowControlsOverlay" in navigator) {
-  navigator.windowControlsOverlay.ongeometrychange = (e) => {          
-    const {width} = e.boundingRect;
-    console.log(width)
-    debounce((width) => {
-      console.log(...args);
+if ("windowControlsOverlay" in navigator) {  
+  navigator.windowControlsOverlay.ongeometrychange = debounce((width) => {
+      console.log(width)
       span.hidden = width < 800;
-    }, 1250);
+    }, 250);
   }
+  
 }
 
 if ("serviceWorker" in navigator) {
