@@ -5,7 +5,7 @@ const input = document.querySelector("input");
 const div = document.querySelector("div");
 const span = document.querySelector("span");
 
-const debounce = (func, wait) => {
+const debounce = (func, wait) => {  
   let timeout;
   return function executedFunction(...args) {
     const later = () => {
@@ -33,7 +33,12 @@ if ("windowControlsOverlay" in navigator) {
 
 if ("windowControlsOverlay" in navigator) {
   navigator.windowControlsOverlay.ongeometrychange = (e) => {          
-    debounce(() => {span.hidden = e.boundingRect.width < 800}, 1250);
+    const {width} = e.boundingRect;
+    console.log(width)
+    debounce((width) => {
+      console.log(...args);
+      span.hidden = width < 800;
+    }, 1250);
   }
 }
 
