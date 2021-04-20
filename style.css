@@ -43,10 +43,12 @@ body {
   height: env(titlebar-area-height, 33px);  
 }
 
+/* For macOS: */
 .search-controls-left {
-  background-image: linear-gradient(90deg, maroon, 66%, #131313);
+  background-image: linear-gradient(90deg, maroon, 45%, #131313, 90%, maroon);
 }
 
+/* For Windows: */
 .search-controls-right {
   background-image: linear-gradient(90deg, #131313, 33%, maroon);
 }
