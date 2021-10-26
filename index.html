@@ -3,40 +3,39 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="maroon" />
+    <meta name="theme-color" content="#36c" />
     <script>
       if (!isSecureContext) {
         location.protocol = "https:";
       }
     </script>
-    <title>Chuck Norris Jokes</title>
+    <title>Wikimedia Featured Content</title>
     <link rel="stylesheet" href="/style.css" />
     <link rel="manifest" href="/manifest.webmanifest" />
     <link
       rel="icon"
-      href="https://cdn.glitch.com/e58095ef-156d-4ab0-9647-80d7e85a928b%2Fchuck.png?v=1617897417704"
+      href="https://cdn.glitch.me/c9bc66cc-4360-4eaa-8c47-ab59a1bad38c%2Flogo.svg?v=1635255211816"
     />
     <script src="/script.js" type="module"></script>
   </head>
   <body>
-    <h1>Chuck Norris Jokes</h1>
+    <h1>Wikimedia Featured Content</h1>
     <div class="search">
       <img
-        src="https://cdn.glitch.com/e58095ef-156d-4ab0-9647-80d7e85a928b%2Fchuck.png?v=1617897417704"
-        alt="Chuck Norris"
+        src="https://cdn.glitch.me/c9bc66cc-4360-4eaa-8c47-ab59a1bad38c%2Flogo.svg?v=1635255211816"
+        alt="Wikimedia Logo."
         width="512"
         height="512"
       />
-      <label><input type="search"/> Search words in jokes</label>
-      <span hidden>(Chuck Norris can find a word that rhymes with orange.)</span>
+      <label><input type="search" /> Search words in articles</label>
+      <span hidden>(Search powered by CSS)</span>
     </div>
     <ul></ul>
     <p>
-      Jokes via <a href="https://api.chucknorris.io/">api.chucknorris.io</a>.
-      Icon public domain via
+      Content via the
       <a
-        href="https://commons.wikimedia.org/wiki/File:Chuck_Norris_May_2015.jpg"
-        >Wikimedia Commons</a
+        href="https://api.wikimedia.org/wiki/API_reference/Feed/Featured_content"
+        >Wikimedia Featured Content API</a
       >.
     </p>
   </body>

@@ -1,5 +1,3 @@
-import limitConcur from "https://unpkg.com/limit-concur@0.0.1/src/index.js";
-
 const ul = document.querySelector("ul");
 const input = document.querySelector("input");
 const div = document.querySelector("div");
@@ -24,7 +22,7 @@ const debounce = (func, wait) => {
   let timeout;
   return function executedFunction(...args) {
     const later = () => {
-      clearTimeout(timeout);      
+      clearTimeout(timeout);
       func(...args);
     };
     clearTimeout(timeout);
@@ -52,23 +50,26 @@ const removeNonCharacters = text => {
 };
 
 (async () => {
-  const categories = await fetch(
-    "https://api.chucknorris.io/jokes/categories"
+  const content = await fetch(
+    `https://api.wikimedia.org/feed/v1/wikipedia/en/featured/${new Date().getFullYear()}/${(
+      new Date().getMonth() + 1
+    )
+      .toString()
+      .padStart(2, "0")}/${new Date()
+      .getDate()
+      .toString()
+      .padStart(2, "0")}`
   ).then(response => response.json());
 
-  async function getChuckNorrisJoke(category) {
-    const { value } = await fetch(
-      `https://api.chucknorris.io/jokes/random?${category}`
-    ).then(response => response.json());
-    return value;
-  }
-
-  const limitedGetChuckNorrisJoke = limitConcur(4, getChuckNorrisJoke);
-  const jokes = await Promise.all(categories.map(limitedGetChuckNorrisJoke));
-
   let html = "";
-  jokes.forEach(joke => {
-    html += `<li data-search="${removeNonCharacters(joke)}">${joke}</li>`;
+  content.mostread.articles.forEach(article => {
+    html += `<li><a data-search="${removeNonCharacters(
+      article.displaytitle
+    )}" href="${article.content_urls.desktop.page}">${
+      article.displaytitle
+    }</a> (${article.views} views) <p data-search="${removeNonCharacters(
+      article.description
+    )}" >${article.description}</p></li>`;
   });
   ul.innerHTML = html;
 })();

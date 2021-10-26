@@ -1,4 +1,4 @@
-const CACHE_NAME = "chuck-norris-cache";
+const CACHE_NAME = "wikimedia-cache";
 
 const ASSETS = [
   "./",

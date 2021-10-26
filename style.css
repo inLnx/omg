@@ -1,4 +1,4 @@
-:root {  
+:root {
   color-scheme: dark light;
 }
 
@@ -9,13 +9,14 @@
 }
 
 h1 {
-  2rem;
-  color: maroon;
+  font-size: 2rem;
+  color: #36c;
 }
 
 img {
   height: 100%;
   width: auto;
+  padding-block: 0.25rem;
 }
 
 html,
@@ -32,28 +33,28 @@ body {
   background-color: Highlight;
 }
 
-.search {  
+.search {
   align-items: center;
   display: flex;
-  gap: .25rem;
-  position: fixed;  
+  gap: 0.25rem;
+  position: fixed;
   left: env(titlebar-area-x, 0);
-  top: env(titlebar-area-y, 0);  
+  top: env(titlebar-area-y, 0);
   width: env(titlebar-area-width, 100%);
-  height: env(titlebar-area-height, 33px);  
+  height: env(titlebar-area-height, 33px);
 }
 
 /* For macOS: */
 .search-controls-left {
-  background-image: linear-gradient(90deg, maroon, 45%, #131313, 90%, maroon);
+  background-image: linear-gradient(90deg, #36c, 45%, #131313, 90%, #36c);
 }
 
 /* For Windows: */
 .search-controls-right {
-  background-image: linear-gradient(90deg, #131313, 33%, maroon);
+  background-image: linear-gradient(90deg, #131313, 33%, #36c);
 }
 
-.search label {  
+.search label {
   color: #eee;
 }
 
@@ -65,4 +66,10 @@ body {
 input {
   -webkit-app-region: no-drag;
   app-region: no-drag;
+}
+
+@media (prefers-color-scheme: dark) {
+  img {
+    filter: invert(1);
+  }
 }
