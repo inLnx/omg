@@ -42,11 +42,11 @@ if ("serviceWorker" in navigator) {
   });
 }
 
-const removeNonCharacters = text => {
-  return text
+const removeNonCharacters = text => {  
+  return text ? text
     .replace(/\W/g, "-")
     .replace(/-+/g, "-")
-    .toLowerCase();
+    .toLowerCase() : text;
 };
 
 (async () => {
