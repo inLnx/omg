@@ -4,7 +4,10 @@ const div = document.querySelector("div");
 const span = document.querySelector("span");
 
 if ("windowControlsOverlay" in navigator) {
-  const { x, width } = navigator.windowControlsOverlay.getBoundingClientRect();
+  const { x, width } =
+    "getTitlebarAreaRect" in navigator.windowControlsOverlay
+      ? navigator.windowControlsOverlay.getTitlebarAreaRect()
+      : navigator.windowControlsOverlay.getBoundingClientRect();
   // Window controls are on the right.
   if (x === 0) {
     div.classList.add("search-controls-right");
@@ -42,11 +45,13 @@ if ("serviceWorker" in navigator) {
   });
 }
 
-const removeNonCharacters = text => {  
-  return text ? text
-    .replace(/\W/g, "-")
-    .replace(/-+/g, "-")
-    .toLowerCase() : text;
+const removeNonCharacters = text => {
+  return text
+    ? text
+        .replace(/\W/g, "-")
+        .replace(/-+/g, "-")
+        .toLowerCase()
+    : text;
 };
 
 (async () => {
