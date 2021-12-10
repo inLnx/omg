@@ -35,7 +35,10 @@ const debounce = (func, wait) => {
 
 if ("windowControlsOverlay" in navigator) {
   navigator.windowControlsOverlay.ongeometrychange = debounce(e => {
-    span.hidden = e.boundingRect.width < 800;
+    span.hidden =
+      "titlebarAreaRect" in e
+        ? e.titlebarAreaRect.width < 800
+        : e.boundingRect.width < 800;
   }, 250);
 }
 
